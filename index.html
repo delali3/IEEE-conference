@@ -68,6 +68,59 @@
       color: #28a745;
       text-decoration: none;
     }
+
+    .countdown {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.flip-card {
+  perspective: 1000px;
+  width: 120px;
+  height: 200px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border-radius: 10px;
+}
+
+.flip-card-front {
+  background-color: #007bff;
+  color: white;
+}
+
+.flip-card-back {
+  background-color: #0056b3;
+  color: white;
+  transform: rotateX(180deg);
+}
+
+/* Adjusted for vertical flip */
+.flipping .flip-card-inner {
+  transform: rotateX(-180deg);
+}
+
+.flip-card-inner {
+  transform-origin: bottom; /* Adjusts the pivot point for the flip */
+}
+
   </style>
 
 
@@ -97,11 +150,11 @@
         <ul class="nav-menu">
           <li class="menu-active"><a href="#intro">Home</a></li>
           <li><a href="#committee">Committees</a></li>
+          <li><a href="#">Workshop</a></li>
           <li><a href="#buy-tickets">Registration</a></li>
           <li><a href="#call-for-paper">Call for papers</a></li>
           <li><a href="#submit-paper">Submission</a></li>
           <li><a href="#sponsors">Sponsors</a></li>
-          <li><a href="#">Workshop</a></li>
           <!-- <li><a href="#hotels">Hotels</a></li>
           <li><a href="#contact">Contact</a></li> -->
           <!-- <li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li> -->
@@ -164,7 +217,7 @@
               <img src="images/speakers/minister.webp" alt="Speaker 2" class="img-fluid">
               <div class="details">
                 <h3><a href="speaker-details.html">Dr Yaw Osei Adutwum </a></h3>
-                <p>Min of Education</p>
+                <p>Minister of Education</p>
               </div>
             </div>
           </div>
@@ -172,8 +225,18 @@
             <div class="speaker">
               <img src="images/speakers/prof.jpg" alt="Speaker 1" class="img-fluid">
               <div class="details">
-                <h3><a href="speaker-details.html">Prof Issak Yakubu </a></h3>
-                <p>Assoc. Prof</p>
+                <h3><a href="speaker-details.html">Ing. Prof. Issaka Yakubu </a></h3>
+                <p>Conference Chairperson</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="speaker">
+              <img src="images/speakers/george_eduful__1___1___1_-removebg-preview (1).png" alt="Speaker 3"
+                class="img-fluid">
+              <div class="details">
+                <h3><a href="speaker-details.html">Dr. George Eduful</a></h3>
+                <p>Conference Co-Chairperson</p>
               </div>
             </div>
           </div>
@@ -182,188 +245,10 @@
               <img src="images/speakers/civil aviation.jpg" alt="Speaker 4" class="img-fluid">
               <div class="details">
                 <h3><a href="speaker-details.html">Charles Kraikue</a></h3>
-                <p>Director General, GCAA</p>
+                <p>Director General, GCATC</p>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="speaker">
-              <img src="images/speakers/george_eduful__1___1___1_-removebg-preview (1).png" alt="Speaker 3"
-                class="img-fluid">
-              <div class="details">
-                <h3><a href="speaker-details.html">Dr. George Eduful</a></h3>
-                <p>Fugiat laborum et</p>
-              </div>
-            </div>
-          </div>
-    </section>
-
-    <!--==========================
-      Speakers Section
-    ============================-->
-    <section id="committee" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Local Organising Committee (LOC)</h2>
-          <p>Here are some of our LOC</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Ing Isaac Kweku Boakye</a></h3>
-                <p>SMIEEE</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Mr Maxwell Addison Darko</a></h3>
-                <p>SMIEEE</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Engr Madina Seidu Adams</a></h3>
-                <p>MIEEE</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Engr Dr Millicent Akotam Agangiba</a></h3>
-                <p>SMIEEE</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Ing Precious Oduro</a></h3>
-                <p>MIEEE</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Engr Dr George Eduful</a></h3>
-                <p>SMIEEE</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Engr Dr Ezekiel Mensah Martey</a></h3>
-                <p>MIEEE</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Engr Dr Albert K. Ansah</a></h3>
-                <p>SMIEEE</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Dr Eldad Antwi Bekoe</a></h3>
-                <p>SMIEEE</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Dr Ernest Ampomah </a></h3>
-                <p>SMIEEE</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Dr Emmanuel Antwi Bosiako</a></h3>
-                <p>SMIEEE</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--==========================
-      Speakers Section
-    ============================-->
-    <section id="other-committe-members" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Other Committee Members</h2>
-          <p>Here are some of our speakers</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Engr Dr Millicent Akotam Agangiba, SMIEEE</a></h3>
-                <p>Technical Programs Committee</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Ing Isaac Kweku Boakye, SMIEEE</a></h3>
-                <p>Publicity Committee</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Engr Madina Seidu Adams, MIEEE</a></h3>
-                <p>Publicity Committee</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Maxwell Addison Darko, SMIEEE</a></h3>
-                <p>Logistics/Registration Committee</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Ing Precious Oduro, MIEEE</a></h3>
-                <p>Logistics/Registration Committee</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <div class="details">
-                <h3><a href="speaker-details.html">Willow Trantow</a></h3>
-                <p>Non autem dicta</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </section>
 
 
@@ -402,8 +287,36 @@
                   style="color: #007bff;">Click here</a>
               </p>
               <!-- Countdown Timer -->
-              <div id="countdown" style="padding: 10px; background-color: palegreen; color: navy; margin-bottom: 20px;">
-              </div>
+              <div id="countdown" class="countdown">
+                <!-- Days Flip Card -->
+                <div class="flip-card days">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front"><span id="days"></span> Days</div>
+                    <div class="flip-card-back"><span id="days-next"></span> Days</div>
+                  </div>
+                </div>
+                <!-- Hours Flip Card -->
+                <div class="flip-card hours">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front"><span id="hours"></span> H</div>
+                    <div class="flip-card-back"><span id="hours-next"></span> H</div>
+                  </div>
+                </div>
+                <!-- Minutes Flip Card -->
+                <div class="flip-card minutes">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front"><span id="minutes"></span> Mins</div>
+                    <div class="flip-card-back"><span id="minutes-next"></span> Mins</div>
+                  </div>
+                </div>
+                <!-- Seconds Flip Card -->
+                <div class="flip-card seconds">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front"><span id="seconds"></span> S</div>
+                    <div class="flip-card-back"><span id="seconds-next"></span> S</div>
+                  </div>
+                </div>
+              </div>              
               <p><strong>Deadline for full papers submission:</strong><br>
                 <s>13th May 2024</s> 31st May 2024<br>
                 <strong>Notification of acceptance:</strong><br>
@@ -428,7 +341,7 @@
                 <!-- Uncomment and replace 'path_to_image' with actual image path -->
                 <!-- <img src="path_to_image/speakers/placeuser.png" alt="Speaker Image" style="width: 100%; height: auto; border-radius: 10px;"> -->
               </div>
-              <p style="font-weight: bold; margin-bottom: 10px;">Keynote Speaker: Prof. Issak Yakubu</p>
+              <p style="font-weight: bold; margin-bottom: 10px;">Keynote Speaker: Ing. Prof. Issaka Yakubum</p>
               <p style="text-align: justify;">He is an IEEE senior member. He received his PhD degree in Information
                 Technology in 2014 from Aalborg University, Denmark. He received his MSc degree in Network Services and
                 Systems in 2009 from the Royal Institute of Technology-KTH, Sweden. He also received his BSc degree in
@@ -451,7 +364,7 @@
       <!-- First Column -->
       <div class="col-lg-4 col-md-6 grid">
         <h3>CALL FOR PAPER</h3>
-        <p>The topics and subject areas for ICAST 2018 are:</p>
+        <p>The topics and subject areas for ICAST 2024 are:</p>
         <strong>Applications of Computing to Natural Sciences, Agricultural Engineering, including but not limited to:</strong>
         <ul>
           <li>Bio-computing</li>
@@ -577,15 +490,15 @@
                   <h3>PAPER FORMAT</h3>
                   <p>All submissions should be written in English. Full papers have a minimum length of five (5) pages and a maximum length of eight (8) printed pages, including figures. Short papers have a minimum and maximum of three (3) and four (4) pages, respectively.</p>
                   <p>Papers should be written to adhere to the standard IEEE Conference Proceedings format. Templates for Microsoft Word and LaTeX can be found <a href="http://www.ieee.org/conferences_events/conferences/publishing/templates.html">here</a>. Only PDF files and Word/ODT documents will be accepted for the review process and all submissions must be done through Microsoft CMT.</p>
-                  <p>Please contact the ICAST 2018 Secretariat if you have any questions about submitting your manuscripts.</p>
+                  <p>Please contact the ICAST 2024 Secretariat if you have any questions about submitting your manuscripts.</p>
                   <p><a href="https://cmt3.research.microsoft.com/ICAST2018">SUBMIT A PAPER</a></p>
                 </div>
             
                 <!-- Notice -->
                 <div class="col-lg-4 col-md-6">
                   <h3>NOTICE</h3>
-                  <p>PLEASE NOTE: To be published in the ICAST 2018 Conference Proceedings and IEEE Xplore, an author of an accepted paper must register for the conference and must present the paper at the conference. Non-refundable registration fees must be paid prior to uploading the final IEEE formatted, publication-ready version of the paper. For authors with multiple accepted papers, one registration is valid for up to 3 papers.</p>
-                  <p>Accepted and presented papers will be published in the ICAST 2018 Conference Proceedings and in IEEE Xplore.</p>
+                  <p>PLEASE NOTE: To be published in the ICAST 2024 Conference Proceedings and IEEE Xplore, an author of an accepted paper must register for the conference and must present the paper at the conference. Non-refundable registration fees must be paid prior to uploading the final IEEE formatted, publication-ready version of the paper. For authors with multiple accepted papers, one registration is valid for up to 3 papers.</p>
+                  <p>Accepted and presented papers will be published in the ICAST 2024 Conference Proceedings and in IEEE Xplore.</p>
                   <p><a href="https://cmt3.research.microsoft.com/ICAST2018">SUBMIT A PAPER</a></p>
                 </div>
             
@@ -1513,27 +1426,52 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
-  <script>
-    function updateCountdown() {
-      const targetDate = new Date("10/24/2024 5:00 AM").getTime();
-      const now = new Date().getTime();
-      const difference = targetDate - now;
+<script>
+// Make sure this function is called to initialize the countdown when the document is ready
+document.addEventListener('DOMContentLoaded', function() {
+    updateCountdown();
+    setInterval(updateCountdown, 1000); // Update every second
+});
 
-      if (difference >= 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+function updateCountdown() {
+    const targetDate = new Date("10/24/2024 5:00 AM").getTime();
+    const now = new Date().getTime();
+    const difference = targetDate - now;
 
-        document.getElementById("countdown").innerHTML = `<h2>${days} Days, ${hours} Hours, ${minutes} Minutes, ${seconds} Seconds.</h2>`;
-      } else {
-        document.getElementById("countdown").innerHTML = "It is finally here!";
-      }
+    if (difference >= 0) {
+        let days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        flipUpdate('days', days);
+        flipUpdate('hours', hours);
+        flipUpdate('minutes', minutes);
+        flipUpdate('seconds', seconds);
     }
+}
 
-    setInterval(updateCountdown, 1000);
-  </script>
+function flipUpdate(unit, newValue) {
+    const flipCardInner = document.querySelector(`.${unit} .flip-card-inner`);
+    const frontValue = flipCardInner.querySelector('.flip-card-front span');
+    const backValue = flipCardInner.querySelector('.flip-card-back span');
 
+    // Check if the new value is different to initiate the flip
+    if (backValue.textContent != newValue) {
+        backValue.textContent = newValue; // Set the next value on the back
+
+        // Add the flipping effect
+        flipCardInner.classList.add('flipping');
+
+        // Wait for half the flip duration to update the front value and remove the flipping class
+        setTimeout(() => {
+            frontValue.textContent = newValue;
+            flipCardInner.classList.remove('flipping');
+        }, 300); // This duration should be half of your CSS flip animation duration
+    }
+}
+
+</script>
 
 
 </body>
