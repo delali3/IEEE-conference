@@ -27,6 +27,13 @@
 
   <!-- Main Stylesheet File -->
   <link href="./css/style.css" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,900" rel="stylesheet">
+  <script defer type="text/javascript" src="https://pbutcher.uk/credit-tag/credit-tag-black.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  <link rel="stylesheet" href="https://pbutcher.uk/flipdown/css/flipdown/flipdown.css">
+  <script src="https://pbutcher.uk/flipdown/js/flipdown/flipdown.js"></script>
+
   <style>
     .grid {
       background-color: #f8f9fa;
@@ -69,59 +76,24 @@
       text-decoration: none;
     }
 
-    .countdown {
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
+    .countdown{
+      width: 100%;
+      /* background-color: rebeccapurple; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column!important;
+    }
+
+    .flipdown {
+    transform: scale(0.6); /* Adjust the scale value as needed */
+    transform-origin: top center; /* Adjusts the point from which the scaling occurs */
+    max-width: max-content!important;
+
 }
 
-.flip-card {
-  perspective: 1000px;
-  width: 120px;
-  height: 200px;
-}
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  border-radius: 10px;
-}
-
-.flip-card-front {
-  background-color: #007bff;
-  color: white;
-}
-
-.flip-card-back {
-  background-color: #0056b3;
-  color: white;
-  transform: rotateX(180deg);
-}
-
-/* Adjusted for vertical flip */
-.flipping .flip-card-inner {
-  transform: rotateX(-180deg);
-}
-
-.flip-card-inner {
-  transform-origin: bottom; /* Adjusts the pivot point for the flip */
-}
-
-  </style>
+        </style>
 </head>
 
 <body>
@@ -134,8 +106,9 @@
 
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
+        <h1><a href="#main">I<span>CAST</span>2024</a></h1>
         <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-        <a href="#intro" class="scrollto"><img src="images/logo/logo.jpg" alt="" title=""></a>
+        <!-- <a href="#intro" class="scrollto"><img src="images/logo/logo.jpg" alt="" title=""></a> -->
       </div>
 
       <nav id="nav-menu-container">
@@ -273,51 +246,27 @@
                 The papers have been published: <a href="https://ieeexplore.ieee.org/xpl/conhome/8490494/proceeding"
                   style="color: #007bff;">Click here</a>
               </p>
-              <!-- Countdown Timer -->
-              <div id="countdown" class="countdown">
-                <!-- Days Flip Card -->
-                <div class="flip-card days">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-front"><span id="days"></span> Days</div>
-                    <div class="flip-card-back"><span id="days-next"></span> Days</div>
-                  </div>
-                </div>
-                <!-- Hours Flip Card -->
-                <div class="flip-card hours">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-front"><span id="hours"></span> H</div>
-                    <div class="flip-card-back"><span id="hours-next"></span> H</div>
-                  </div>
-                </div>
-                <!-- Minutes Flip Card -->
-                <div class="flip-card minutes">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-front"><span id="minutes"></span> Mins</div>
-                    <div class="flip-card-back"><span id="minutes-next"></span> Mins</div>
-                  </div>
-                </div>
-                <!-- Seconds Flip Card -->
-                <div class="flip-card seconds">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-front"><span id="seconds"></span> S</div>
-                    <div class="flip-card-back"><span id="seconds-next"></span> S</div>
-                  </div>
-                </div>
-              </div>              
+              
               <p><strong>Deadline for full papers submission:</strong><br>
-                <s>13th May 2024</s> 31st May 2024<br>
+                31st May, 2024<br>
                 <strong>Notification of acceptance:</strong><br>
-                20 June 2024<br>
-                <strong>Deadline for early bird registration:</strong><br>
-                3rd August 2024<br>
-                <strong>Deadline for Late registration:</strong><br>
+                1st September, 2024<br>
+                <strong>Camera ready copy:</strong><br>
+                24th September, 2024<br>
+                <!-- <strong>Deadline for Late registration:</strong><br>
                 10th August 2024<br>
                 <strong>Strict date for Camera-ready:</strong><br>
-                13th August 2024<br>
-                <strong>Conference date:</strong> 22nd to 24th August 2024<br>
-                <strong>Venue:</strong> Computer Science Department, University of Ghana, Legon, Accra, Ghana.
+                13th August 2024<br> -->
+                <strong>Conference registration:</strong> 1st - 20th October, 2024<br>
+                <strong>Venue:</strong> Ghana Aviation Training Academy, Accra, Ghana.
               </p>
-              <p>***New: <a href="program.html">programs</a>***</p>
+
+              <!-- Countdown Timer -->
+              <div class="countdown">
+                <div id="flipdown" class="flipdown"></div>
+              </div>
+              <!-- countdown eds -->
+              
             </div>
 
 
@@ -326,13 +275,29 @@
               <h3 style="margin-bottom: 20px;">KEYNOTE SPEAKER</h3>
               <div style="margin-bottom: 20px;">
               </div>
-              <p style="font-weight: bold; margin-bottom: 10px;">Keynote Speaker: Ing. Prof. Issaka Yakubum</p>
-              <p style="text-align: justify;">He is an IEEE senior member. He received his PhD degree in Information
-                Technology in 2014 from Aalborg University, Denmark. He received his MSc degree in Network Services and
-                Systems in 2009 from the Royal Institute of Technology-KTH, Sweden. He also received his BSc degree in
-                Electrical and Electronic Engineering in 2003 from the Kwame Nkrumah University of Science and
-                Technology. He has worked as a lecturer in several universities in Ghana and Denmark. He is currently a
-                lecturer at the School of Technology, Ghana Institute of Management and Public Administration.</p>
+              <p style="font-weight: bold; margin-bottom: 10px;">Keynote Speaker: Ing. Prof. Issaka Yakubu</p>
+              <p style="text-align: justify;">
+                He is an Associate 
+                Professor of Geomatic Engineering and 
+                a Consulting Engineer currently 
+                working at UMaT, Tarkwa-Ghana. He 
+                holds BSc in Geomatic Engineering 
+                from KNUST, Kumasi-Ghana, MPhil 
+                and PhD in Geomatic Engineering from 
+                the (UMaT), Tarkwa-Ghana. He holds 
+                an MSc in Land Policy and Administration from the University 
+                of Cape Coast. He also has a Certificate in Disaster Risk 
+                Management and Environmental Assessment for Spatial Planning 
+                from the ITC-University of Twente, The Netherlands. He is a 
+                member of the GHIE, GhIS, IAENG, ISPRS, a fellow of 
+                WAIMM. His research and consultancy work cover; Land Policy 
+                and Administration, Mine Surveying, Infrastructural Mapping, 
+                Cadastral and Engineering Surveying, Global Navigation 
+                Satellite System (GNSS) applications, Geo-Information for 
+                Disaster 
+                Management, Geo-Information for Transport 
+                Management. 
+              </p>
             </div>
 
           </div>
@@ -1324,11 +1289,11 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br>
+              Ghana Aviation Training Academy <br>
+              Accra<br>
+              Ghana <br>
               <strong>Phone:</strong> +233 20 835 1347<br>
-              <strong>Email:</strong> info@example.com<br>
+              <strong>Email:</strong> info@ieeeghicast2024.org/<br>
             </p>
 
             <div class="social-links">
@@ -1347,16 +1312,10 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong>TheEvent</strong>. All Rights Reserved
+        &copy; Copyright <strong>IEEE</strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
-        -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://ghprofit.com/">GhProfit</a>
       </div>
     </div>
   </footer><!-- #footer -->
@@ -1380,49 +1339,25 @@
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
 <script>
-// Make sure this function is called to initialize the countdown when the document is ready
-document.addEventListener('DOMContentLoaded', function() {
-    updateCountdown();
-    setInterval(updateCountdown, 1000); // Update every second
+// Create Countdown
+document.addEventListener('DOMContentLoaded', () => {
+    // Calculate the target date in Unix timestamp (seconds)
+    var targetDate = new Date('2024-10-24').getTime() / 1000;
+
+    // Set up FlipDown to count down to the target date
+    var flipdown = new FlipDown(targetDate)
+
+    // Start the countdown
+    .start()
+
+    // Do something when the countdown ends
+    .ifEnded(() => {
+        console.log('The countdown has ended!');
+    });
+
+    var ver = document.getElementById('ver');
+    ver.innerHTML = flipdown.version;
 });
-
-function updateCountdown() {
-    const targetDate = new Date("10/24/2024 5:00 AM").getTime();
-    const now = new Date().getTime();
-    const difference = targetDate - now;
-
-    if (difference >= 0) {
-        let days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        flipUpdate('days', days);
-        flipUpdate('hours', hours);
-        flipUpdate('minutes', minutes);
-        flipUpdate('seconds', seconds);
-    }
-}
-
-function flipUpdate(unit, newValue) {
-    const flipCardInner = document.querySelector(`.${unit} .flip-card-inner`);
-    const frontValue = flipCardInner.querySelector('.flip-card-front span');
-    const backValue = flipCardInner.querySelector('.flip-card-back span');
-
-    // Check if the new value is different to initiate the flip
-    if (backValue.textContent != newValue) {
-        backValue.textContent = newValue; // Set the next value on the back
-
-        // Add the flipping effect
-        flipCardInner.classList.add('flipping');
-
-        // Wait for half the flip duration to update the front value and remove the flipping class
-        setTimeout(() => {
-            frontValue.textContent = newValue;
-            flipCardInner.classList.remove('flipping');
-        }, 300); // This duration should be half of your CSS flip animation duration
-    }
-}
 
 </script>
 
