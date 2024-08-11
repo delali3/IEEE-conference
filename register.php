@@ -132,13 +132,14 @@ if (empty($_SESSION['csrf_token'])) {
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="./index.html">Home</a></li>
+          <li><a href="./index.html">Home</a></li>
           <li><a href="./committee.html">Committees</a></li>
           <li><a href="./workshop.html">Workshop</a></li>
-          <li><a href="./register.php">Registration</a></li>
-          <li><a href="#call-for-paper">Call for papers</a></li>
-          <li><a href="#submit-paper">Submission</a></li>
-          <li><a href="#sponsors">Sponsors</a></li>
+          <li ><a href="./doctoral-consortium.html">Doctoral Consortium</a></li>
+          <li class="menu-active"><a href="./register.php">Registration</a></li>
+          <li><a href="./#call-for-paper">Call for papers</a></li>
+          <li><a href="./#submit-paper">Submission</a></li>
+          <li><a href="./#sponsors">Sponsors</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
