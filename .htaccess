@@ -1,0 +1,16 @@
+RewriteEngine On
+
+# Redirect external .php or .html requests to extensionless url
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.(php|html)[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
+
+# Resolve .php file for extensionless php urls
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L]
+
+# Resolve .html file for extensionless html urls
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+# Custom 404 page
+ErrorDocument 404 /404.html
