@@ -82,6 +82,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
+    $student_id_file_name = null;
+    if ($_POST['student_status'] === 'Yes' && isset($_FILES['student_id_upload'])) {
+        $student_id_file = $_FILES['student_id_upload'];
+        $student_id_ext = strtolower(pathinfo($student_id_file['name'], PATHINFO_EXTENSION));
+
+        // Check file type
+        if (!in_array($student_id_ext, $allowed_types)) {
+            echo json_encode(["status" => "error", "message" => "Invalid file type for student ID"]);
+            exit;
+        }
+
+        // Check file size (example: max 5MB)
+        if ($student_id_file['size'] > 5000000) {
+            echo json_encode(["status" => "error", "message" => "Student ID file size exceeds limit"]);
+            exit;
+        }
+
+        $student_id_file_name = uniqid() . '_student.' . $student_id_ext;
+        $upload_student_file = $upload_dir . $student_id_file_name;
+
+        if (!move_uploaded_file($student_id_file['tmp_name'], $upload_student_file)) {
+            echo json_encode(["status" => "error", "message" => "Failed to upload student ID file"]);
+            exit;
+        }
+    }
+
     // Sanitize and prepare form data after validation
     $full_name = sanitizeInput($_POST['participantName']);
     $email = sanitizeInput($_POST['participantEmail']);
@@ -105,8 +131,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Prepare and bind statement for database insertion
     $stmt = $conn->prepare("INSERT INTO registrations 
-        (full_name, email, title, designation, gender, contact_number, address, city, country, institution, department, role, transaction_id, payment_date, payment_type, receipt_file, agree_terms, ieee_member, ieee_id, paper_id) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        (full_name, email, title, designation, gender, contact_number, address, city, country, institution, department, role, transaction_id, payment_date, payment_type, receipt_file, agree_terms, ieee_member, ieee_id, paper_id, student_id_file) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
     );
 
     if ($stmt === false) {
@@ -116,7 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Bind parameters and execute the statement
-    $stmt->bind_param("ssssssssssssssssisss", $full_name, $email, $title, $designation, $gender, $phone_number, $address, $city, $country, $institution, $department, $role, $transaction_id, $payment_date, $payment_type, $file_name, $agree_terms, $ieee_member, $ieee_id, $paperID);
+    $stmt->bind_param("ssssssssssssssssissss", $full_name, $email, $title, $designation, $gender, $phone_number, $address, $city, $country, $institution, $department, $role, $transaction_id, $payment_date, $payment_type, $file_name, $agree_terms, $ieee_member, $ieee_id, $paperID, $student_id_file_name);
 
     if ($stmt->execute()) {
         echo json_encode(["status" => "success", "message" => "Registration successful"]);

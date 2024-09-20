@@ -243,13 +243,13 @@
                                                 <?= isset($_GET['fields']) && in_array('gender', $_GET['fields']) ? 'checked' : '' ?>>
                                             <label for="gender" class="form-check-label">Gender</label>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
                                         <div class="form-check">
                                             <input type="checkbox" name="fields[]" value="address" id="address" class="form-check-input"
                                                 <?= isset($_GET['fields']) && in_array('address', $_GET['fields']) ? 'checked' : '' ?>>
                                             <label for="address" class="form-check-label">Address</label>
                                         </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="form-check">
                                             <input type="checkbox" name="fields[]" value="city" id="city" class="form-check-input"
                                                 <?= isset($_GET['fields']) && in_array('city', $_GET['fields']) ? 'checked' : '' ?>>
@@ -296,6 +296,7 @@
                 <th>ID</th>
                 <th>Full Name</th>
                 <th>Email</th>
+                <th>Is Student</th>
                 <!-- Dynamic Field Headers -->
                 <?php
                 if (isset($_GET['fields'])) {
@@ -313,7 +314,7 @@
             include './includes/dbh.inc.php'; // Database connection
 
             // Base query with required fields
-            $query = "SELECT id, full_name, email, receipt_file";
+            $query = "SELECT id, full_name, email, receipt_file, student_id_file";
 
             // Append selected fields to query
             if (isset($_GET['fields'])) {
@@ -344,6 +345,12 @@
                 echo "<td>" . htmlspecialchars($row['id']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['full_name']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['email']) . "</td>";
+                if (!empty($row['student_id_file'])) {
+                    $image_url = 'uploads/' . htmlspecialchars($row['student_id_file']);
+                    echo "<td><a href='$image_url' target='_blank'><img src='$image_url' alt='Receipt' style='width:100px;height:auto;'></a></td>";
+                } else {
+                    echo "<td>Not a student</td>";
+                }
 
                 // Display the selected fields
                 if (isset($_GET['fields'])) {

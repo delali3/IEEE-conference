@@ -409,6 +409,25 @@ if (empty($_SESSION['csrf_token'])) {
                       <input type="text" class="form-control" id="ieee_id" name="ieee_id" placeholder="IEEE Membership ID">
                     </div>
 
+                    <!-- Student Status -->
+                    <div class="mb-4">
+                      <label for="student_status">Are you a student?</label>
+                      <select class="form-select" id="student_status" name="student_status" required onchange="toggleStudentFields()">
+                        <option value="" selected>Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+
+                    <!-- Additional Student Upload Fields (Initially Hidden) -->
+                    <div id="student_fields" style="display: none;">
+                      <div class="mb-4">
+                        <label for="student_id_upload">Upload Your Student ID</label>
+                        <input class="form-control" type="file" id="student_id_upload" name="student_id_upload" accept=".pdf,.jpg,.jpeg,.png">
+                      </div>
+                    </div>
+
+
                     <!-- Terms and Conditions -->
                     <div class="form-check mb-4">
                       <input class="form-check-input" type="checkbox" id="agreeTerms" name="agreeTerms" required>
@@ -675,17 +694,30 @@ if (empty($_SESSION['csrf_token'])) {
 
 
     function toggleIeeeIdField() {
-    var ieeeMemberSelect = document.getElementById("ieee_member");
-    var ieeeIdField = document.getElementById("ieee_id_field");
+      var ieeeMemberSelect = document.getElementById("ieee_member");
+      var ieeeIdField = document.getElementById("ieee_id_field");
 
-    if (ieeeMemberSelect.value === "Yes") {
+      if (ieeeMemberSelect.value === "Yes") {
         ieeeIdField.style.display = "block";
-        document.getElementById("ieee_id").required = true;  // Make IEEE ID required if Yes is selected
-    } else {
+        document.getElementById("ieee_id").required = true; // Make IEEE ID required if Yes is selected
+      } else {
         ieeeIdField.style.display = "none";
-        document.getElementById("ieee_id").required = false;  // Remove required attribute if No is selected
+        document.getElementById("ieee_id").required = false; // Remove required attribute if No is selected
+      }
     }
-}
+
+    function toggleStudentFields() {
+      var studentStatusSelect = document.getElementById("student_status");
+      var studentFields = document.getElementById("student_fields");
+
+      if (studentStatusSelect.value === "Yes") {
+        studentFields.style.display = "block";
+        document.getElementById("student_id_upload").required = true; // Make the upload required
+      } else {
+        studentFields.style.display = "none";
+        document.getElementById("student_id_upload").required = false; // Remove required if "No" is selected
+      }
+    }
   </script>
 
 
