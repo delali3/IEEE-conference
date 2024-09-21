@@ -274,14 +274,12 @@
                 <strong>Notification of acceptance:</strong><br>
                 1st September, 2024<br>
                 <strong>Camera ready copy:</strong><br>
-                24th September, 2024<br>
-                <strong>Deadline for Late registration:</strong><br>
-                10th August 2024<br>
+                30th September, 2024<br>
                 <strong>Early Bird Registrantion:</strong><br>
                 1st - 30th September 2024<br>
                 <strong>Late / On-site Registrantion:</strong><br>
-                1st - 25th October 2024<br>
-                <strong>Conference registration:</strong> 1st - 20th October, 2024<br>
+                1st - 24th October 2024<br>
+                <!-- <strong>Conference registration:</strong> 1st - 20th October, 2024<br> -->
                 <strong>Venue:</strong> Ghana Aviation Training Academy, Accra, Ghana.
               </p>
 
@@ -1207,8 +1205,20 @@
         });
       });
     </script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script>
+      window.onload = function() {
+        const conferenceID = "61769";  // Set your conference ID here
+        Swal.fire({
+          title: 'Conference ID',
+          text: `Your Conference ID is: ${conferenceID}`,
+          icon: 'info',
+          confirmButtonText: 'OK'
+        });
+      };
+    </script>
+    
 </body>
 
 </html>
